@@ -15,8 +15,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Inicio', 'catalogo', 'Contacto'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -29,7 +30,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        HOLA
+        ecommerce
       </Typography>
       <Divider />
       <List>

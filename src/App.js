@@ -4,12 +4,14 @@ import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <NavBar/>
-      <header className="App-header">
-       APRENDIENDO REACT!!!!!
-      </header>
+      <main>
+        <h1 style={{marginTop:"4rem"}}>ecommerce</h1>
+      </main>
+
     </div>
+    
   );
 }
 
