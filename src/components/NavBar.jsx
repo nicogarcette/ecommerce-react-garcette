@@ -14,10 +14,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import CartWidget from './CartWidget';
 
 
 const drawerWidth = 240;
-const navItems = ['Inicio', 'catalogo', 'Contacto'];
+const navItems = ['Inicio', 'catalogo', 'Contacto',<CartWidget/>];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -92,8 +93,7 @@ function DrawerAppBar(props) {
         >
           {drawer}
         </Drawer>
-      </Box>
-      
+      </Box>   
     </Box>
   );
 }
