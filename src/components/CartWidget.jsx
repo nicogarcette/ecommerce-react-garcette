@@ -6,7 +6,7 @@ const CartWidget=()=>{
 
     return(
         <>
-            <ShoppingCartIcon color={"error"} fontSize={"large"}/>
+            <ShoppingCartIcon fontSize={"large"}/>
         </>
     )
 }

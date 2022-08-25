@@ -15,6 +15,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CartWidget from './CartWidget';
+import logo from '../assets/img/logo.png';
 
 
 const drawerWidth = 240;
@@ -66,7 +67,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Nicolas
+            <img src={logo} style={{width:"80px"}} alt="" />
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
