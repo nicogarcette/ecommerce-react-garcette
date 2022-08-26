@@ -11,3 +11,8 @@
     top:-28px;
     left: -14px;
 }
+
+.containerCart{
+    display:flex;
+    justify-content :center;
+}
