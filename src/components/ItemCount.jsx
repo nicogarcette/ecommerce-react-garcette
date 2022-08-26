@@ -6,27 +6,30 @@ const ItemCount = ({initial,stock,onAdd}) => {
     const [contador, setContador]= useState(initial);
     const [disable,setDisable]= useState(false);
 
-    const addProduct = () =>{
+    const addItem = () =>{
         if (contador<stock) {
             setContador(contador + 1);
         }
     }
-    const removeProduct = () =>{
+    const removeItem = () =>{
         if (contador>initial) {
             setContador(contador - 1);
         }
     }
-
+  
     useEffect(()=>{
-        contador===stock? setDisable(true) : setDisable(false) ; 
-    },[contador,stock   ])
-    
+        contador<=stock? setDisable(false) : setDisable(true) ; 
+    },[contador,stock])
     
     return(
         <div>
-            <h1>Contador = {contador}</h1>
-            <button onClick={addProduct} disabled={disable}>+1</button>
-            <button onClick={removeProduct}>-1</button>
+            <h1>Items: {contador}</h1>
+            <p>stock: {stock}</p>
+            <button onClick={addItem}>+1</button>
+            <button onClick={removeItem}>-1</button>
+            <br />
+            <br />
+            <button onClick={()=>onAdd(contador)} disabled={disable}>Agregar al carrito</button>
         </div>
     )
 }
