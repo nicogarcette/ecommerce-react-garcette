@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 
-
 const ItemCount = ({initial,stock,onAdd}) => {
 
     const [contador, setContador]= useState(initial);
@@ -20,7 +19,7 @@ const ItemCount = ({initial,stock,onAdd}) => {
     useEffect(()=>{
         contador<=stock? setDisable(false) : setDisable(true) ; 
     },[contador,stock])
-    
+
     return(
         <div>
             <h1>Items: {contador}</h1>
