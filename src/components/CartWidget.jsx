@@ -1,14 +1,14 @@
 import React from "react";
+import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const CartWidget=()=>{
 
     return(
-        <div>
+        <Badge badgeContent={0} color="error">
             <ShoppingCartIcon fontSize={"large"}/>
-            <span className="cartCant">0</span>
-        </div>
+        </Badge>
     )
 }
 

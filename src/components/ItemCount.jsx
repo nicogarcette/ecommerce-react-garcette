@@ -22,12 +22,13 @@ const ItemCount = ({initial,stock,onAdd}) => {
 
     return(
         <div>
-            <h1>Items: {contador}</h1>
+            <h3>Items: {contador}</h3>
             <p>stock: {stock}</p>
+           
             <button onClick={addItem}>+1</button>
             <button onClick={removeItem}>-1</button>
             <br />
-            <br />
+           
             <button onClick={()=>onAdd(contador)} disabled={disable}>Agregar al carrito</button>
         </div>
     )

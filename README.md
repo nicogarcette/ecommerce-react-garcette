@@ -1,3 +1,10 @@
+# Entrega cd catálogo con Maps
+- Se agregan los componentes
+    - Item
+    - ItemList
+- Se agrega el componente ItemListLoader para simular la carga.
+- Se implementa una promesa para emular la carga de artículos desde un api.
+
 # Entrega del componente ItemCount
 
 - Se crea el componente ItemCount de acuerdo a la consigna
