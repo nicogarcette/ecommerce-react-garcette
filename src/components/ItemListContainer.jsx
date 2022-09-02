@@ -4,7 +4,6 @@ import ItemList from "./ItemList";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
 const catalogo=[
     {id:1,marca:"nike",modelo:"ishod",precio:1400,img:"nike-ishod.png",descripcion:"skate",stock:10},
     {id:2,marca:"new balance",modelo:"550",precio:1500,img:"nb-550.png",descripcion:"skate",stock:10},
@@ -14,6 +13,7 @@ const catalogo=[
 
 const ItemListContainer=(props)=>{
 
+ 
     const {titulo, greeting}=props;    
     const [stock,setStock]=useState(5);
 
@@ -24,9 +24,6 @@ const ItemListContainer=(props)=>{
         }
     }
 
-    
-
-   
 // state for the promise
     const [loading,setLoading]=useState(true);
     const [productos,setProductos]=useState([]);
@@ -75,12 +72,7 @@ const ItemListContainer=(props)=>{
             <h2>{titulo}</h2>
             <h3>{greeting}</h3>
 
-            <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
-
-            {
-                print()
-            }
-            
+            { print() }
         </div>
     )
 }

@@ -16,3 +16,7 @@
     display:flex;
     justify-content :space-evenly;
 }
+
+.ItemDetailContainer{
+    text-align: center;
+}

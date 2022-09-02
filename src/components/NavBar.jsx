@@ -17,7 +17,6 @@ import Button from '@mui/material/Button';
 import CartWidget from './CartWidget';
 import logo from '../assets/img/logo.png';
 
-
 const drawerWidth = 240;
 const navItems = ['Inicio', 'catalogo', 'Contacto',<CartWidget/>];
 
