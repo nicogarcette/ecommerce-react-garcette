@@ -15,7 +15,6 @@ function App() {
       <Routes>
         <Route path='/' element={<ItemListContainer titulo={titulo} greeting={"Hola bienvenidos!"}/>}/>
         <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
-        <Route/>
       </Routes>
       </BrowserRouter>
     </div>

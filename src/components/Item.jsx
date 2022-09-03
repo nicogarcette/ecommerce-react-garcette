@@ -3,9 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
+import { useNavigate } from 'react-router-dom';
 
 
 const Item=({producto})=>{
+
+  const navegar = useNavigate();
+
     return (
         <Card sx={{ minWidth: 275 }}>
           <CardContent>
@@ -28,6 +32,7 @@ const Item=({producto})=>{
                ${producto.precio}
             </Typography>
           </CardContent>
+          <button onClick={()=>navegar(`/detalle/${producto.id}`)}> ver mas </button>
         </Card>
       );
 }

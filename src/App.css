@@ -20,3 +20,8 @@
 .ItemDetailContainer{
     text-align: center;
 }
+
+.links{
+    list-style: none;
+    text-decoration: none;
+}

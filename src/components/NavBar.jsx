@@ -1,6 +1,4 @@
-
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -16,9 +14,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CartWidget from './CartWidget';
 import logo from '../assets/img/logo.png';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Inicio', 'catalogo', 'Contacto',<CartWidget/>];
+const navItems = [{nombre:'catalogo', enlace:'/'}];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -36,11 +35,13 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+          <NavLink className='links' to={item.enlace}>
+            <ListItem key={item.nombre} disablePadding>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item.nombre} />
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
         ))}
       </List>
     </Box>
@@ -61,18 +62,22 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            <img src={logo} style={{width:"80px"}} alt="" />
-          </Typography>
+          <NavLink  to='/'>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            >
+              <img src={logo} style={{width:"80px"}} alt="" />
+            </Typography>
+          </NavLink>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
+              <NavLink className='links' to={item.enlace}>
+                <Button key={item.nombre} sx={{ color: '#fff' }}>
+                  {item.nombre}
+                </Button>
+              </NavLink>
             ))}
           </Box>
         </Toolbar>
@@ -93,17 +98,9 @@ function DrawerAppBar(props) {
         >
           {drawer}
         </Drawer>
-      </Box>   
+      </Box>    
     </Box>
   );
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default DrawerAppBar;
