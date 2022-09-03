@@ -2,7 +2,7 @@
 - Se agregan los componentes:
     - ItemDetailContainer
     - ItemDetail
--   se obtiene un producto de la api de mercadoLibre y se renderiza en pantalla
+
 
 # Entrega cd catálogo con Maps
 - Se agregan los componentes

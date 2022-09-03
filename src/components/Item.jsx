@@ -2,6 +2,8 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
+
 
 const Item=({producto})=>{
     return (
@@ -16,10 +18,12 @@ const Item=({producto})=>{
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               {producto.marca}
             </Typography>
-            <Typography variant="body2">
-                {producto.img}
-                <br />
-            </Typography>
+            <CardMedia
+              component="img"
+              height="140"
+              image={producto.img}
+              alt="isis"
+            />
             <Typography gutterBottom variant="h5" component="div" color={"error"}>
                ${producto.precio}
             </Typography>

@@ -1,4 +1,3 @@
-
 import './App.css';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
@@ -13,9 +12,7 @@ function App() {
       <NavBar/>
       <ItemListContainer titulo={titulo} />
       <ItemDetailContainer/>
-
     </div>
-
   );
 }
 
