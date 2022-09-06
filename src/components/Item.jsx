@@ -11,11 +11,8 @@ const Item=({producto})=>{
   const navegar = useNavigate();
 
     return (
-        <Card sx={{ minWidth: 275 }}>
+        <Card className='card' sx={{ minWidth: 275 }}>
           <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Calzado id:{producto.id}   
-            </Typography>
             <Typography variant="h5" component="div">
               {producto.modelo}
             </Typography>
@@ -24,7 +21,7 @@ const Item=({producto})=>{
             </Typography>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={producto.img}
               alt="isis"
             />
@@ -32,7 +29,7 @@ const Item=({producto})=>{
                ${producto.precio}
             </Typography>
           </CardContent>
-          <button onClick={()=>navegar(`/detalle/${producto.id}`)}> ver mas </button>
+          <button className='btn' onClick={()=>navegar(`/detalle/${producto.id}`)}> ver mas </button>
         </Card>
       );
 }

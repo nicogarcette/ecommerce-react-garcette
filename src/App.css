@@ -15,6 +15,10 @@
 .containerCart{
     display:flex;
     justify-content :space-evenly;
+    flex-wrap: wrap;
+}
+.card{
+    margin: 3rem;
 }
 
 .ItemDetailContainer{
@@ -24,4 +28,26 @@
 .links{
     list-style: none;
     text-decoration: none;
+}
+
+.btn{
+    background-color: #002B5B;
+    border: solid #002B5B 1px;
+    border-radius: 5px;
+    padding: .5rem;
+    margin: .5rem;
+    color: white;
+    transition: all .5s ease;
+}
+.btn:hover{
+    background-color: #7FBCD2;
+    border: solid #7FBCD2 1px;
+    color:black;
+}
+
+
+.cardDetail{
+    position: relative;
+    left: 25%;
+    margin-top: 5rem;
 }

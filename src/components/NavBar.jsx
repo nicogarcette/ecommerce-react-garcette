@@ -79,6 +79,7 @@ function DrawerAppBar(props) {
                 </Button>
               </NavLink>
             ))}
+            <CartWidget/>
           </Box>
         </Toolbar>
       </AppBar>
@@ -97,6 +98,7 @@ function DrawerAppBar(props) {
           }}
         >
           {drawer}
+          <CartWidget/>
         </Drawer>
       </Box>    
     </Box>
