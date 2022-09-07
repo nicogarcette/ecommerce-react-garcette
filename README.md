@@ -4,15 +4,15 @@
     - react-router-dom https://reactrouter.com/docs/en/v6/getting-started/overview
 
 - Rúbrica de la entrega
-    **Componentes**
+    ###### Componentes
     - NavBar con CartWidget
     - Catálogo
     - Detalle del producto
-    **Rutas a configurar**
+    ###### Rutas a configurar
     - '/' navega a <ItemListContainer />
     - '/categoria/:id' <ItemListContainer />
     - '/detalle/:id' navega a <ItemDetailContainer />
-    **Links a configurar**
+    ###### Links a configurar
     - Clickear en el brand debe navegar a '/'
     - Clickear un Item.js debe navegar a '/item/:id'
     - Clickear en una categoría del navbar debe navegar a '/category/:categoryId'
