@@ -3,31 +3,32 @@ import ItemList from "./ItemList";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { promesa } from "../utils/data";
+import { useParams } from "react-router-dom";
+
 
 const ItemListContainer=(props)=>{
 
     const {titulo, greeting}=props;    
 
-
 // state for the promise
-    const [loading,setLoading]=useState(true);
-    const [productos,setProductos]=useState([]);
+    const [loading,setLoading] = useState(true);
+    const [productos,setProductos] = useState([]);
+    const {idCategoria} = useParams();
 
-   
 
 //  then and catch for the promise
     useEffect(()=>{
         promesa
         .then((res)=>{
-            setProductos(res);
+            if (idCategoria) {
+                setProductos(res.filter(producto => producto.categoria === idCategoria));
+            }else{
+                setProductos(res);
+            }
         })
-        .catch((err)=>{
-            console.log(err);
-        })
-        .finally(()=>{
-            setLoading(false);
-        });
-    },[]); 
+        .catch((err)=> console.log(err))
+        .finally(()=> setLoading(false));
+    },[idCategoria]); 
  
 
     const print=()=>{
@@ -41,6 +42,8 @@ const ItemListContainer=(props)=>{
         }
 
     }
+  
+ 
 
     return (
         <div className="main">
