@@ -1,4 +1,5 @@
 # Entrega intermedia del Proyecto Final
+ link gif: https://drive.google.com/drive/folders/12ulLLkRqC2AJu1t0Nnuaek2DF9o1O6Cv?usp=sharing
 - Dependencias:
     - Material UI https://mui.com/material-ui/getting-started/overview/
     - react-router-dom https://reactrouter.com/docs/en/v6/getting-started/overview
