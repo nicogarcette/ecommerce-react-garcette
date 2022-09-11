@@ -5,17 +5,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from './ItemCount'
 import Grid from '@mui/material/Grid';
-
-
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({item}) => {
 
   const [stock,setStock]=useState(item.stock);
+  const [count,setCount]=useState(1);
+  const [agrego,setAgrego]=useState(false);
+
+  const navegar = useNavigate();
 
   const onAdd=(cantidad)=>{
     if (cantidad<=stock) {
         alert(`se agrego al carrito ${cantidad}`);
         setStock(stock-cantidad);
+        setAgrego(true);
     }
   }
 
@@ -35,7 +39,6 @@ const ItemDetail = ({item}) => {
                   </Typography>
                   <CardMedia
                     component="img"
-                    // height="200"
                     image={item.img}
                     alt="isis"
                   />
@@ -44,9 +47,15 @@ const ItemDetail = ({item}) => {
                   </Typography>
                 </CardContent>
               </Grid>
-              <Grid item xs={2}>
-                <ItemCount onAdd={onAdd} initial={1} stock={stock}/>
-              </Grid>
+              {
+                agrego? <Grid item xs={2}>
+                          <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>
+                        </Grid>
+                         :
+                        <Grid item xs={2}>
+                          <ItemCount onAdd={onAdd} initial={1} stock={stock} count={count} setCount={setCount}/>
+                        </Grid>        
+              }  
           </Grid>
         </Card>
       );
