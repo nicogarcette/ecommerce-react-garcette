@@ -35,8 +35,8 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <NavLink className='links' to={item.enlace}>
-            <ListItem key={item.nombre} disablePadding>
+          <NavLink key={item.nombre} className='links' to={item.enlace}>
+            <ListItem  disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
                 <ListItemText primary={item.nombre} />
               </ListItemButton>
@@ -73,8 +73,8 @@ function DrawerAppBar(props) {
           </NavLink>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <NavLink className='links' to={item.enlace}>
-                <Button key={item.nombre} sx={{ color: '#fff' }}>
+              <NavLink key={item.nombre} className='links' to={item.enlace}>
+                <Button  sx={{ color: '#fff' }}>
                   {item.nombre}
                 </Button>
               </NavLink>

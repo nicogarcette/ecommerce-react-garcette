@@ -15,8 +15,6 @@ const ItemDetailContainer= () => {
         promesa
         .then((res)=>{
             setItem(res.find((producto)=> producto.id === parseInt(id)));
-            
-
         })
         .catch((err)=>{
             console.log(err);

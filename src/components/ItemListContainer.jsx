@@ -15,7 +15,6 @@ const ItemListContainer=(props)=>{
     const [productos,setProductos] = useState([]);
     const {idCategoria} = useParams();
 
-
 //  then and catch for the promise
     useEffect(()=>{
         promesa
@@ -30,7 +29,6 @@ const ItemListContainer=(props)=>{
         .finally(()=> setLoading(false));
     },[idCategoria]); 
  
-
     const print=()=>{
         if(loading){
             return (<Box sx={{ width: '100%' }}>
@@ -38,13 +36,9 @@ const ItemListContainer=(props)=>{
                     </Box>);
         }else{
             return (<ItemList productos={productos}/> );
-
         }
-
     }
   
- 
-
     return (
         <div className="main">
             <h2>{titulo}</h2>

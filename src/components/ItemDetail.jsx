@@ -6,23 +6,34 @@ import Typography from '@mui/material/Typography';
 import ItemCount from './ItemCount'
 import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const ItemDetail = ({item}) => {
 
   const [stock,setStock]=useState(item.stock);
   const [count,setCount]=useState(1);
   const [agrego,setAgrego]=useState(false);
+  const {id, marca, modelo, precio,img} = item;
 
   const navegar = useNavigate();
+  const {addItem} = useCart();
 
   const onAdd=(cantidad)=>{
+    let compra ={
+      id, 
+      marca,
+      modelo,
+      precio,
+      img, 
+      cantidad
+    }
     if (cantidad<=stock) {
         alert(`se agrego al carrito ${cantidad}`);
         setStock(stock-cantidad);
         setAgrego(true);
     }
+    addItem(compra);
   }
-
     return (
         <Card className="cardDetail" sx={{ width: 1/2}}>
           <Grid container justifyContent="center">
