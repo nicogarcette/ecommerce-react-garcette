@@ -1,3 +1,10 @@
+# CARTCONTEXT
+- implementado React Context
+- Está agregada la ruta /cart al BrowserRouter
+- El botón de agregar al carrito, agrega el item y despliega un boton que redirige a /Cart.
+- Cart contiene el conjunto de productos de la compra.
+- En el carrito (/Cart) hay un botón que vacía el carro.
+
 # Entrega intermedia del Proyecto Final
  link gif: https://drive.google.com/drive/folders/12ulLLkRqC2AJu1t0Nnuaek2DF9o1O6Cv?usp=sharing
 - Dependencias:

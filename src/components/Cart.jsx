@@ -2,11 +2,12 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 
 const Cart = () =>{
-    const {cart} = useCart();
+    const {cart,clear} = useCart();
 
     return (
         <div style={{marginTop:'10rem'}}>
-           {JSON.stringify(cart)}
+           {cart.length > 0 && JSON.stringify(cart)}
+           {cart.length > 0 ? <button className="btn" onClick={()=>clear()}>Vaciar carrito</button> : "carrito vacio"}
         </div>
     );
 }
