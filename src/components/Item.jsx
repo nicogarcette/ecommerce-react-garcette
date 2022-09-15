@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from 'react-router-dom';
 
-
 const Item=({producto})=>{
 
   const navegar = useNavigate();

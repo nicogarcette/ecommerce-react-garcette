@@ -7,6 +7,7 @@ import ItemCount from './ItemCount'
 import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import Alert from "./Alert";
 
 const ItemDetail = ({item}) => {
 
@@ -15,6 +16,7 @@ const ItemDetail = ({item}) => {
   const [agrego,setAgrego]=useState(false);
   const {id, marca, modelo, precio,img} = item;
 
+  const [message, setMessage] = useState(null);
   const navegar = useNavigate();
   const {addItem} = useCart();
 
@@ -27,14 +29,23 @@ const ItemDetail = ({item}) => {
       img, 
       cantidad
     }
+
     if (cantidad<=stock) {
-        alert(`se agrego al carrito ${cantidad}`);
+        setMessage(`se ${ cantidad ===1? 'agrego' :'agregaron'} ${cantidad}  ${marca} ${modelo} al carrito`);
         setStock(stock-cantidad);
         setAgrego(true);
     }
+
     addItem(compra);
   }
     return (
+      <>
+        <Alert
+        message={message && message}
+        isOpen={message !==null}
+        onClose={()=> setMessage(null)}
+        />
+
         <Card className="cardDetail" sx={{ width: 1/2}}>
           <Grid container justifyContent="center">
               <Grid item xs={8}>
@@ -69,6 +80,7 @@ const ItemDetail = ({item}) => {
               }  
           </Grid>
         </Card>
+      </>
       );
 }
 
