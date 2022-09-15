@@ -16,6 +16,7 @@ import CartWidget from './CartWidget';
 import logo from '../assets/img/logo.png';
 import { NavLink } from 'react-router-dom';
 
+
 const drawerWidth = 240;
 const navItems = [{nombre:'catalogo', enlace:'/'},{nombre:'calzado', enlace:'/categoria/calzado'},{nombre:'deportes', enlace:'/categoria/deportes'}];
 

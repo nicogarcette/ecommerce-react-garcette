@@ -3,10 +3,10 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
-const CartWidget=()=>{
+const CartWidget=({totalItems})=>{
 
     return(
-        <Badge badgeContent={0} color="error">
+        <Badge badgeContent={totalItems} color="error">
             <ShoppingCartIcon fontSize={"large"}/>
         </Badge>
     )
