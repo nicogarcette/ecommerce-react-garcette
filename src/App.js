@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from './components/Cart'
 import { CartProvider } from './context/CartContext';
+import { ThemeProvider } from '@mui/material';
+import theme from './utils/ThemeMui';
 
 function App() {
 
@@ -12,15 +14,17 @@ function App() {
 
   return (
       <CartProvider>
-        <BrowserRouter>
-          <NavBar/>
-          <Routes>
-            <Route path='/' element={<ItemListContainer titulo={titulo} greeting={"Hola bienvenidos!"}/>}/>
-            <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
-            <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
-            <Route path='/Cart' element={<Cart/>}/>
-          </Routes>
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <NavBar/>
+            <Routes>
+              <Route path='/' element={<ItemListContainer titulo={titulo} greeting={"Hola bienvenidos!"}/>}/>
+              <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
+              <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+              <Route path='/Cart' element={<Cart/>}/>
+            </Routes>
+          </BrowserRouter>
+          </ThemeProvider>
       </CartProvider>
   );
 }
