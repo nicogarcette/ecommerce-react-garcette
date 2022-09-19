@@ -26,7 +26,6 @@ export const CartProvider = ({children}) =>{
 
     }
 
-
     const clear =()=>{
         setCart([]);
         setTotalItems(0);
@@ -37,9 +36,18 @@ export const CartProvider = ({children}) =>{
     const isInCart = (id) =>{
         return cart.some((prod)=> prod.id === id);
     }
+    const cartQuatity=()=>{
+        return cart.reduce((acc,prod)=>acc += prod.cantidad,0);
+    }
+
+    const cartTotal= () =>{
+        let total = cart.reduce((acc,prod) => acc += prod.precio*prod.cantidad,0);
+        return total.toLocaleString()
+
+    }
 
     return(
-        <CartContext.Provider value={{cart, clear, removeItem, addItem, isInCart,totalItems}}>
+        <CartContext.Provider value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal}}>
             {children}
         </CartContext.Provider>
     );
