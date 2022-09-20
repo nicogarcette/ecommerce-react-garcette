@@ -1,3 +1,9 @@
+# itemCollection (Firebase)
+-  Se Conecta la colección de firestore con el listado de ítems y con el detalle de ítem.
+- Se eliminan todos los mocks.
+- Navegar a "/category/:id" consulta la colección products filtrada por categoria
+- Navegar a "/item/:id" consulta por un solo producto.
+
 # CartView
 - El componente CartWidget es reactivo al contexto
 - Cart contiene el desglose de la compra agrupada por categorías.
