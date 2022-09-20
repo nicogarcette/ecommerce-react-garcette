@@ -80,7 +80,11 @@ function DrawerAppBar(props) {
                 </Button>
               </NavLink>
             ))}
-            <CartWidget/>
+             <NavLink  to="./Cart">
+                <Button  sx={{ color: '#fff' }}>
+                  <CartWidget/>
+                </Button>
+              </NavLink>
           </Box>
         </Toolbar>
       </AppBar>

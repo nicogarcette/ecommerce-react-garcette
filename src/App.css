@@ -52,3 +52,35 @@
     left: 25%;
     margin-top: 5rem;
 }
+
+
+
+/* cart provisoria */
+.container_cart{
+    margin-top: 5rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid #002B5B;
+    width: 500px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+.btn-trash{
+    background-color: #002B5B;
+    border: solid #002B5B 1px;
+    border-radius: 5px;
+    padding: .3rem;
+    margin: .2rem;
+    color: white;
+    transition: all .5s ease;
+}
+.btn-trash:hover{
+  opacity: 0.5;
+}
