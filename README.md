@@ -1,4 +1,13 @@
-# CARTCONTEXT
+# CartView
+- El componente CartWidget es reactivo al contexto
+- Cart contiene el desglose de la compra agrupada por categorías.
+- Cart muestra el precio total
+- Cart muestra un mensaje de que el carrito está vacío y muestra un boton que redirige a "/"
+- CartWidget muestra la cantidad de items comprados y redirige a /cart
+- Cada producto tiene un boton que lo elimina del carrito
+- Hice el deploy en Vercel
+
+# CartContext
 - implementado React Context
 - Está agregada la ruta /cart al BrowserRouter
 - El botón de agregar al carrito, agrega el item y despliega un boton que redirige a /Cart.
