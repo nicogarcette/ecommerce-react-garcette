@@ -30,7 +30,7 @@ const ItemDetailContainer= () => {
     return (
         <div className="ItemDetailContainer">
             <p>Detalle:</p>
-            {loading ?   <Box sx={{ width: '100%' }}>
+            {loading ?   <Box className="loader" sx={{ width: '100%' }}>
                             <CircularProgress disableShrink />
                         </Box>
                     :   <ItemDetail item={item}/>}

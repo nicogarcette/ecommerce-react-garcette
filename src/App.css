@@ -1,3 +1,4 @@
+
 .main{
     text-align: center;
     margin-top: 5rem;
@@ -72,6 +73,12 @@
     margin: 1rem;
     border-radius: 5px;
 }
+.cart_vacio{
+    margin-top: 6.7rem;
+    margin-bottom: 8rem;
+
+
+}
 .btn-trash{
     background-color: #002B5B;
     border: solid #002B5B 1px;
@@ -84,3 +91,242 @@
 .btn-trash:hover{
   opacity: 0.5;
 }
+
+.loader{
+    margin-top: 15rem;
+    margin-bottom: 14rem;
+}
+
+/* footer */
+footer{
+    width: 100%;
+    padding: 50px 0px;
+    /* background-image: url(../Images/background-footer.svg); */
+    background-size: cover;
+    /* position: absolute;
+    bottom: 0; */
+    
+    background-color: #EFF3F5;
+    /* -webkit-mask-image: url("../Images/background-footer.svg");
+    mask-image: url("../Images/background-footer.svg");
+    -webkit-mask-size: cover;
+    mask-size: cover; */
+}
+
+.container__footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.box__footer{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.box__footer .logo img{
+    width: 180px;
+}
+
+.box__footer .terms{
+    max-width: 350px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #7a7a7a;
+    font-size: 18px;
+}
+
+.box__footer h2{
+    margin-bottom: 30px;
+    color: #343434;
+    font-weight: 700;
+}
+
+.box__footer a{
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+    text-decoration: none;
+    
+}
+
+.box__footer a:hover{
+    opacity: 0.8;
+}
+
+.box__footer a .fab{
+    font-size: 20px;
+}
+
+.box__copyright{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.box__copyright p{
+    margin-top: 20px;
+    color: #7a7a7a;
+}
+
+.box__copyright hr{
+    border: none;
+    height: 1px;
+    background-color: #7a7a7a;
+}
+
+
+
+* -------------CHECKOUT -------------*/
+/* formulario */
+
+.checkout{
+    height: 800px;
+    background: #DDDDDD;
+}
+.checkout_titulo{
+    margin-top:8rem;
+    text-align: center;
+
+
+}
+.checkout_contenido{
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+}
+.form_grupo{
+    padding: 0px 20px;
+
+}
+
+.form{
+    width: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:40px;
+    margin: 2rem;
+    margin-top: 10rem;
+}
+.form_label{
+    display: block;
+    font-weight:700;
+    padding: 0 10px;
+    cursor: pointer;
+}
+.form_grupo-input{
+    position: relative;
+
+}
+
+.form_input{
+    width: 100%;
+    background:#EFF3F5;
+    border: 3px solid transparent;
+    line-height: 45px;
+    padding:0 40px 0 10px ;
+    transition: .3s ease all;
+    height: 2.5rem;
+    border-radius: 10px;
+
+}
+.form_input:focus{
+
+    border: 1px solid #0075ff;
+    outline: none;
+    box-shadow: 2px 0px 40px rgba(99, 99, 99, 0.2);
+
+}
+.form_input-error{
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    opacity: 0;
+}
+
+.form_validacion-estado{
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+
+.form_mensajeError,
+.form_grupo-btn{
+    grid-column: span 2;
+}
+
+.form_mensajeError{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+    background: #f66060;
+    border-radius: 3px;
+    display: none;
+}
+
+.form_mensajeError-active{
+    display: block;
+}
+
+.form_grupo-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form_btn{
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    padding: 0 5px;
+    background: #06113C;
+    color: #fff;
+    font-weight:500;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+.form_btn:hover{
+    color: #B20600;
+}
+
+.form_mensaje-exito{
+    font-size: 14px;
+    color:#119200;
+    display: none;
+}
+.form_mensaje-exito-activado{
+    display: block;
+}
+
+/* ---- estilos de validacion ----*/
+/* correcto */
+
+.form_grupo-correcto .form_input{
+    border:1px solid #1ed12d;
+}
+.form_grupo-correcto i.fa-circle-check{
+    color:#1ed12d;
+    opacity: 1;
+}
+/* incorrecto */
+.form_grupo-incorrecto .form_input{
+    border:1px solid #bb2929;
+}
+.form_grupo-incorrecto i.fa-circle-xmark{
+    color:#bb2929;
+    opacity: 1;
+}
+
+.form_grupo-incorrecto .form_input-error{
+    opacity: 1;
+}
+

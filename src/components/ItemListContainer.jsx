@@ -36,7 +36,7 @@ const ItemListContainer=(props)=>{
 
     const print=()=>{
         if(loading){
-            return (<Box sx={{ width: '100%' }}>
+            return (<Box className="loader" sx={{ width: '100%' }}>
                         <CircularProgress disableShrink />
                     </Box>);
         }else{

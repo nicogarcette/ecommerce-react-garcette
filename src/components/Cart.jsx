@@ -23,14 +23,15 @@ const Cart = () =>{
                             </div>
                     })}
                     <button className="btn" onClick={clear}>Vaciar carrito</button> 
+                    <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p>
                 </div>
                 :
-                <div>
-                    <p>carrito vacio</p>
-                    <button className="btn" onClick={()=>navegar('/')}>Ver catalogo!</button>
+                <div className="cart_vacio">
+                    <h2>Tu carrito está vacío.</h2>
+                    <h3>No sabés que comprar? ¡Miles de productos te esperan!</h3>
+                    <button className="btn" onClick={()=>navegar('/')}>Seguir comprando</button>
                 </div>
            }
-           <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p>
         </div>     
     );
 }
