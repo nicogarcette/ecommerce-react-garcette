@@ -45,20 +45,10 @@ const ItemDetail = ({item}) => {
         isOpen={message !==null}
         onClose={()=> setMessage(null)}
         />
-
         <Card className="cardDetail" sx={{ width: 1/2}}>
           <Grid container justifyContent="center">
-              <Grid item xs={8}>
-                <CardContent sx={{ width: 1/2, height:'auto'}}>
-                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Calzado id:{item.id}   
-                  </Typography>
-                  <Typography variant="h5" component="div">
-                    {item.modelo}
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {item.marca}
-                  </Typography>
+              <Grid item xs={7}>
+                <CardContent sx={{ width: 1, height:'auto',margin:"0", alignItems:'center'}}>
                   <CardMedia
                     component="img"
                     image={item.img}
@@ -69,15 +59,24 @@ const ItemDetail = ({item}) => {
                   </Typography>
                 </CardContent>
               </Grid>
-              {
-                agrego? <Grid item xs={2}>
-                          <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>
-                        </Grid>
-                         :
-                        <Grid item xs={2}>
-                          <ItemCount onAdd={onAdd} initial={1} stock={stock} count={count} setCount={setCount}/>
-                        </Grid>        
-              }  
+              <Grid item xs={3}>
+                  <CardContent>
+                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        id: {item.id}   
+                      </Typography>
+                      <Typography variant="h5" component="div">
+                      {item.modelo}
+                      </Typography>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        {item.marca}
+                      </Typography>
+                  </CardContent>
+                      {
+                        agrego? <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>
+                                :
+                                <ItemCount onAdd={onAdd} initial={1} stock={stock} count={count} setCount={setCount}/>
+                      }  
+                </Grid>
           </Grid>
         </Card>
       </>

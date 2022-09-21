@@ -51,14 +51,21 @@
 .cardDetail{
     position: relative;
     left: 25%;
-    margin-top: 5rem;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
 }
 
 
 
 /* cart provisoria */
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .container_cart{
-    margin-top: 5rem ;
+    margin-bottom: 4rem ;
+    margin-top: 1rem ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,7 +212,7 @@ footer{
 }
 
 .form{
-    width: 40%;
+    width: 70%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap:40px;
@@ -283,6 +290,7 @@ footer{
     align-items: center;
 }
 .form_btn{
+    width: 30%;
     height: 45px;
     line-height: 45px;
     border-radius: 5px;
@@ -295,7 +303,7 @@ footer{
     transition: .2s ease all;
 }
 .form_btn:hover{
-    color: #B20600;
+    scale: 1.02;
 }
 
 .form_mensaje-exito{

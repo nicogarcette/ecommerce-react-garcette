@@ -13,6 +13,11 @@ export const CartProvider = ({children}) =>{
     // contenedor de la compra
     const [cart, setCart] = useState([]);
 
+    // id compra
+    const [idCompra, setIdCompra] = useState('');
+    const [cartLoading, setCartLoading] = useState(false);
+
+
     // agrega item al contenedor. no agrega item existente, suma cantidad.
     const addItem = (item) =>{
         // const existe = cart.find((prod)=>prod.id === item.id);
@@ -47,7 +52,8 @@ export const CartProvider = ({children}) =>{
     }
 
     return(
-        <CartContext.Provider value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal}}>
+        <CartContext.Provider 
+        value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal,idCompra,setIdCompra,setCartLoading,cartLoading}}>
             {children}
         </CartContext.Provider>
     );

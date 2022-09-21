@@ -4,8 +4,7 @@ import { addDoc, collection , getFirestore} from "firebase/firestore";
 
 
 const CheckOut = () =>{
-    const {cart,cartTotal} = useCart();
-
+    const {cart,cartTotal,setIdCompra,clear,setCartLoading} = useCart();
 
     const [name,setName] = useState('');
     const [surname,setSurname] = useState('');
@@ -13,9 +12,9 @@ const CheckOut = () =>{
     const [telefono,setTelefono] = useState('');
     const [documento,setDocumento] = useState('');
    
-  
     const pagar = (e) =>{
         e.preventDefault();
+        setCartLoading(true);
         const compra = {
             buyer:{
                 nombre:name,
@@ -33,11 +32,14 @@ const CheckOut = () =>{
 
         addDoc(orders, compra)
         .then(({id})=>{
-            console.log(id);
+            setIdCompra(id);
         })
         .catch((err)=>console.log(err))
+        .finally(()=>{
+            clear();
+            setCartLoading(false);
+        })
     }
-
     return (
         <div>
             <form onSubmit={pagar} className="form" >  
