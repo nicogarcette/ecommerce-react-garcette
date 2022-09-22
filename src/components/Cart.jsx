@@ -17,7 +17,7 @@ const Cart = () =>{
 
     // return anticipado
     if (cartLoading) {
-        return <Box className="loader" sx={{ width: '100%' }}>
+        return <Box className="loader center" sx={{ width: '100%'}}>
                     <CircularProgress disableShrink />
                 </Box> 
     }

@@ -55,8 +55,6 @@
     margin-bottom: 7rem;
 }
 
-
-
 /* cart provisoria */
 .container{
     display: flex;
@@ -83,8 +81,6 @@
 .cart_vacio{
     margin-top: 6.7rem;
     margin-bottom: 8rem;
-
-
 }
 .btn-trash{
     background-color: #002B5B;
@@ -103,21 +99,17 @@
     margin-top: 15rem;
     margin-bottom: 14rem;
 }
+.center{
+    display: flex;
+    justify-content: center;
+}
 
 /* footer */
 footer{
     width: 100%;
     padding: 50px 0px;
-    /* background-image: url(../Images/background-footer.svg); */
     background-size: cover;
-    /* position: absolute;
-    bottom: 0; */
-    
     background-color: #EFF3F5;
-    /* -webkit-mask-image: url("../Images/background-footer.svg");
-    mask-image: url("../Images/background-footer.svg");
-    -webkit-mask-size: cover;
-    mask-size: cover; */
 }
 .logos{
     display: flex;
@@ -190,10 +182,7 @@ footer{
     height: 1px;
     background-color: #7a7a7a;
 }
-
-
-
-* -------------CHECKOUT -------------*/
+/*-------------CHECKOUT ------------- */ 
 /* formulario */
 
 .checkout{
