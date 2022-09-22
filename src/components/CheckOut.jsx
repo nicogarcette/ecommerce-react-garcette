@@ -1,42 +1,42 @@
 import React, {  useState } from "react";
 import { useCart } from "../context/CartContext";
-import { addDoc, collection , getFirestore} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp} from "firebase/firestore";
+import {db} from "../firebase/firebase"
 
 
 const CheckOut = () =>{
     const {cart,cartTotal,setIdCompra,clear,setCartLoading} = useCart();
 
-    const [name,setName] = useState('');
-    const [surname,setSurname] = useState('');
-    const [email,setEmail] = useState('');
-    const [telefono,setTelefono] = useState('');
-    const [documento,setDocumento] = useState('');
+    const [comprador,setComprador] = useState({});
+
+    const datosComprador = (e) => {
+        setComprador({
+            ...comprador,
+            [e.target.name]:e.target.value
+        })
+    } 
    
     const pagar = (e) =>{
         e.preventDefault();
+
         setCartLoading(true);
+
         const compra = {
-            buyer:{
-                nombre:name,
-                apellido:surname,
-                mail:email,
-                tel:telefono,
-                dni:documento
-            },
-            carrito:[...cart],
-            total: cartTotal()
+            comprador,
+            carrito:cart,
+            total: cartTotal(),
+            date: serverTimestamp()
         }
 
-        const db = getFirestore();
         const orders = collection(db, "orders");
 
         addDoc(orders, compra)
         .then(({id})=>{
             setIdCompra(id);
+            clear();
         })
         .catch((err)=>console.log(err))
         .finally(()=>{
-            clear();
             setCartLoading(false);
         })
     }
@@ -46,7 +46,7 @@ const CheckOut = () =>{
                     <div className="form_grupo">
                         <label htmlFor="nombre" className="form_label">Nombre:</label>
                         <div className="form_grupo-input">
-                            <input  type="text" name="name" className="form_input" placeholder="juan" onChange={(e)=>setName(e.target.value)} required/>
+                            <input  type="text" name="name" className="form_input" placeholder="juan" onChange={datosComprador} required/>
                             <i className="form_validacion-estado fa-solid fa-circle-xmark"></i>
                             <i className="form_validacion-estado fa-solid fa-circle-check"></i>
                         </div>
@@ -56,7 +56,7 @@ const CheckOut = () =>{
                     <div className="form_grupo">
                         <label htmlFor="surname" className="form_label">Apellido:</label>
                         <div className="form_grupo-input">
-                            <input  type="text" name="surname" className="form_input" placeholder="perez" onChange={(e)=>setSurname(e.target.value)} required/>
+                            <input  type="text" name="surname" className="form_input" placeholder="perez" onChange={datosComprador} required/>
                             <i className="form_validacion-estado fa-solid fa-circle-xmark"></i>
                             <i className="form_validacion-estado fa-solid fa-circle-check"></i>
                         </div>
@@ -66,7 +66,7 @@ const CheckOut = () =>{
                     <div className="form_grupo">
                         <label htmlFor="email" className="form_label">Email:</label>
                         <div className="form_grupo-input">
-                            <input type="email" name="email" className="form_input" placeholder="correo@email.com" onChange={(e)=>setEmail(e.target.value)} required/>
+                            <input type="email" name="email" className="form_input" placeholder="correo@email.com" onChange={datosComprador} required/>
                             <i className="form_validacion-estado fa-solid fa-circle-xmark"></i>
                             <i className="form_validacion-estado fa-solid fa-circle-check"></i>
                         </div>
@@ -76,7 +76,7 @@ const CheckOut = () =>{
                     <div className="form_grupo">
                         <label htmlFor="phone" className="form_label">Telefono:</label>
                         <div className="form_grupo-input">
-                            <input type="tel" name="phone" className="form_input" placeholder="11234545" onChange={(e)=>setTelefono(e.target.value)} required/>
+                            <input type="tel" name="phone" className="form_input" placeholder="11234545" onChange={datosComprador} required/>
                             <i className="form_validacion-estado fa-solid fa-circle-xmark"></i>
                             <i className="form_validacion-estado fa-solid fa-circle-check"></i>
                         </div>
@@ -86,7 +86,7 @@ const CheckOut = () =>{
                     <div className="form_grupo">
                         <label htmlFor="dni" className="form_label">Documento:</label>
                         <div className="form_grupo-input">
-                            <input  type="text" name="dni" className="form_input" maxLength="8" placeholder="34919292" onChange={(e)=>setDocumento(e.target.value)} required/>
+                            <input  type="text" name="dni" className="form_input" maxLength="8" placeholder="34919292" onChange={datosComprador} required/>
                             <i className="form_validacion-estado fa-solid fa-circle-xmark"></i>
                             <i className="form_validacion-estado fa-solid fa-circle-check"></i>
                         </div>
