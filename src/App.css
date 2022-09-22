@@ -119,6 +119,11 @@ footer{
     -webkit-mask-size: cover;
     mask-size: cover; */
 }
+.logos{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
 
 .container__footer{
     display: flex;
@@ -152,7 +157,7 @@ footer{
     font-weight: 700;
 }
 
-.box__footer a{
+.box__footer p,a{
     margin-top: 10px;
     color: #7a7a7a;
     font-weight: 600;

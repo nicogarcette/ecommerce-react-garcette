@@ -1,10 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png"
 
-
-
 const Footer = () =>{
-
 
 return(
     <footer>
@@ -20,22 +18,22 @@ return(
             </div>
             <div className="box__footer">
                 <h2>Nosotros</h2>
-                <a href="">Contacto</a>
-                <a href="#">Av. siempreviva 123</a>
-                <a href="#">ayuda</a>
+                <p>Contacto</p>
+                <p>Av. siempreviva 123</p>
+                <p>ayuda</p>
             </div>
             <div className="box__footer">
                 <h2>Categorias</h2>
-                <a href="#">calzado</a>
-                <a href="#">indumentaria</a>
-                <a href="#">accesorios</a>             
+                <Link to='/categoria/calzado'>calzado</Link>
+                <Link to='/categoria/deportes'>deportes</Link>          
             </div>
 
-            <div className="box__footer">
+            <div className="box__footer ">
                 <h2>Redes Sociales</h2>
-                <a href="#"><i className="fa-brands fa-facebook"></i></a>
-
-                <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                <div className="logos">
+                    <a href="https://www.instagram.com/" target="_blank" rel='noreferrer'><i className="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel='noreferrer'><i className="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
 
         </div>
