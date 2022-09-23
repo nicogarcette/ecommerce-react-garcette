@@ -8,17 +8,39 @@ import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import Alert from "./Alert";
+import { useEffect } from "react";
+
 
 const ItemDetail = ({item}) => {
+
+  const {addItem,isInCart} = useCart();
+  const {id, marca, modelo, precio,img} = item;
+
+  
+  useEffect(()=>{
+       
+    const keyCart = JSON.parse(localStorage.getItem("KEY_CART"));
+    if (isInCart(id)) {
+      const pos = keyCart.findIndex((prod)=>prod.id===id);  
+
+      const stockInCart = item.stock - keyCart[pos].cantidad;
+
+      setStock(stockInCart);
+    }
+
+  },[isInCart,id,item.stock])
+
+
+
+
 
   const [stock,setStock]=useState(item.stock);
   const [count,setCount]=useState(1);
   const [agrego,setAgrego]=useState(false);
-  const {id, marca, modelo, precio,img} = item;
 
   const [message, setMessage] = useState(null);
+
   const navegar = useNavigate();
-  const {addItem} = useCart();
 
   const onAdd=(cantidad)=>{
     let compra ={
@@ -29,15 +51,16 @@ const ItemDetail = ({item}) => {
       img, 
       cantidad
     }
+  
 
     if (cantidad<=stock) {
         setMessage(`se ${ cantidad ===1? 'agrego' :'agregaron'} ${cantidad}  ${marca} ${modelo} al carrito`);
-        setStock(stock-cantidad);
         setAgrego(true);
     }
 
     addItem(compra);
   }
+
     return (
       <>
         <Alert
@@ -73,8 +96,8 @@ const ItemDetail = ({item}) => {
                   </CardContent>
                       {
                         agrego? <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>
-                                :
-                                <ItemCount onAdd={onAdd} initial={1} stock={stock} count={count} setCount={setCount}/>
+                                :stock === 0 ? <p>sin stock</p> :
+                                <ItemCount onAdd={onAdd} initial={1} setStock={setStock} stock={stock} count={count} setCount={setCount}/>
                       }  
                 </Grid>
           </Grid>
