@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -6,37 +6,54 @@ export const CartContext = createContext();
 
 
 export const CartProvider = ({children}) =>{
+
+    useEffect(()=>{
+       
+        const keyCart = JSON.parse(localStorage.getItem("KEY_CART"));
+        if (keyCart) {
+            setCart(keyCart);
+        }
+
+    },[])
   
-    // cantidad de productos
     const [totalItems,setTotalItems] = useState(0);
-
-    // contenedor de la compra
     const [cart, setCart] = useState([]);
-
-    // id compra
     const [idCompra, setIdCompra] = useState('');
     const [cartLoading, setCartLoading] = useState(false);
 
-
-    // agrega item al contenedor. no agrega item existente, suma cantidad.
     const addItem = (item) =>{
-        // const existe = cart.find((prod)=>prod.id === item.id);
+        
         setTotalItems(totalItems + item.cantidad); 
 
-        if (isInCart(item.id)) {
-            let pos=cart.findIndex((prod)=>prod.id === item.id);
-            cart[pos].cantidad = cart[pos].cantidad + item.cantidad;
-        }else
-            setCart([...cart, item]); 
+        let carritoActualizo;
 
+        if (isInCart(item.id)) {
+             carritoActualizo = cart.map((prod)=>{
+                if (prod.id === item.id) {
+                    return { ...prod,cantidad:prod.cantidad + item.cantidad}
+                }else{
+                    return prod;
+                }
+            })
+            setCart(carritoActualizo);
+        }else{
+            carritoActualizo = [...cart,item];
+            setCart(carritoActualizo); 
+        }
+        localStorage.setItem("KEY_CART",JSON.stringify(carritoActualizo));
     }
 
     const clear =()=>{
         setCart([]);
         setTotalItems(0);
+        localStorage.removeItem("KEY_CART");
     }
     const removeItem =(id)=>{
-       setCart(cart.filter((item)=> item.id !== id ));
+
+        const cartFilter = cart.filter((item)=> item.id !== id );
+
+       setCart(cartFilter);
+       localStorage.setItem("KEY_CART",JSON.stringify(cartFilter));
     } 
     const isInCart = (id) =>{
         return cart.some((prod)=> prod.id === id);
@@ -44,11 +61,11 @@ export const CartProvider = ({children}) =>{
     const cartQuatity=()=>{
         return cart.reduce((acc,prod)=>acc += prod.cantidad,0);
     }
+   
 
     const cartTotal= () =>{
         let total = cart.reduce((acc,prod) => acc += prod.precio*prod.cantidad,0);
         return total.toLocaleString()
-
     }
 
     return(
@@ -63,4 +80,6 @@ export const CartProvider = ({children}) =>{
 export const useCart = ()=> useContext(CartContext);
 
 
-    
+
+
+

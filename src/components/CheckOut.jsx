@@ -79,7 +79,7 @@ const CheckOut = () =>{
                         </div>
                     </div>
                     <div className="form_grupo form_grupo-btn">
-                        <button className="form_btn" type="submit" >Pagar</button>
+                        <button className="form_btn" type="submit">Pagar</button>
                     </div>
                 </form>
         </div>
