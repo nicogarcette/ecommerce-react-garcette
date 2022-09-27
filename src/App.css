@@ -248,6 +248,7 @@ footer{
     margin-bottom: 0;
     margin-left: 10px;
     opacity: 0;
+
 }
 
 .form_validacion-estado{
@@ -272,6 +273,10 @@ footer{
     background: #f66060;
     border-radius: 3px;
     display: none;
+}
+.form_mensajeError p{
+    margin: 0;
+    opacity: 0;
 }
 
 .form_mensajeError-active{
@@ -307,6 +312,8 @@ footer{
 }
 .form_mensaje-exito-activado{
     display: block;
+    opacity: 0;
+
 }
 
 /* ---- estilos de validacion ----*/

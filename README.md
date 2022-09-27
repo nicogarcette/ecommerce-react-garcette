@@ -1,3 +1,8 @@
+# Item Collection II
+- Se le piden datos al cliente para generar la orden de compra.
+- La orden de compra se guarda en la colección "orders" en firebase.
+- En cuanto el cliente envía la orden, se vacía el carrito.
+
 # itemCollection (Firebase)
 -  Se Conecta la colección de firestore con el listado de ítems y con el detalle de ítem.
 - Se eliminan todos los mocks.

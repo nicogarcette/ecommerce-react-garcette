@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import DeleteIcon from '@mui/icons-material/Delete';
 import CheckOut from "./CheckOut";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import CartItem from "./CartItem";
 
 const Cart = () =>{
-    const {cart,clear,cartTotal,removeItem, idCompra,setIdCompra,cartLoading} = useCart();
+    const {cart,clear,cartTotal, idCompra,setIdCompra,cartLoading} = useCart();
     const navegar = useNavigate();
     
     const back = () =>{
@@ -15,7 +15,7 @@ const Cart = () =>{
         navegar('/');
     }
 
-    // return anticipado
+
     if (cartLoading) {
         return <Box className="loader center" sx={{ width: '100%'}}>
                     <CircularProgress disableShrink />
@@ -35,15 +35,9 @@ const Cart = () =>{
                     </div>
                     <div className="container_cart">
                         <h2>Tu carrito</h2>
-                        {cart.map((producto)=>{
-                        return <div key={producto.id} className="cart">
-                                    <h4>{producto.marca} {producto.modelo}</h4>
-                                    <img style={{width:"200px"}} src={producto.img} alt={producto.modelo} />
-                                    <h4>${producto.precio}</h4>
-                                    <p>cantidad: {producto.cantidad}</p>
-                                    <button className="btn-trash" onClick={()=>removeItem(producto.id)}><DeleteIcon/></button>                 
-                                </div>
-                        })}
+                        {cart.map((producto)=>(
+                            <CartItem key={producto.id} producto={producto}/>
+                        ))}
                         <button className="btn" onClick={clear}>Vaciar carrito</button> 
                         <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p>
                     </div>

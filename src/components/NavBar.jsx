@@ -18,7 +18,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const drawerWidth = 240;
-const navItems = [{nombre:'catalogo', enlace:'/'},{nombre:'calzado', enlace:'/categoria/calzado'},{nombre:'deportes', enlace:'/categoria/deportes'}];
+const navItems = [{nombre:'catalogo', enlace:'/'},{nombre:'calzado', enlace:'/categoria/calzado'},{nombre:'indumentaria', enlace:'/categoria/indumentaria'}];
 
 function DrawerAppBar(props) {
   const { window } = props;
