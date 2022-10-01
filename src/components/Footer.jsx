@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import logo from "../assets/img/logo.png"
 
 const Footer = () =>{
@@ -24,14 +24,15 @@ return(
             </div>
             <div className="box__footer">
                 <h2>Categorias</h2>
+                <Link to='/'>inicio</Link>
                 <Link to='/categoria/calzado'>calzado</Link>
-                <Link to='/categoria/deportes'>deportes</Link>          
+                <Link to='/categoria/indumentaria'>indumentaria</Link>          
             </div>
 
             <div className="box__footer ">
                 <h2>Redes Sociales</h2>
                 <div className="logos">
-                    <a href="https://www.instagram.com/" target="_blank" rel='noreferrer'><i className="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel='noreferrer'><i className="fa-brands fa-facebook"></i></a>
                     <a href="https://www.instagram.com/" target="_blank" rel='noreferrer'><i className="fa-brands fa-instagram"></i></a>
                 </div>
             </div>

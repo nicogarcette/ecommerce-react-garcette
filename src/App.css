@@ -141,6 +141,7 @@ footer{
     font-weight: 500;
     color: #7a7a7a;
     font-size: 18px;
+    text-align: center;
 }
 
 .box__footer h2{
@@ -182,9 +183,34 @@ footer{
     height: 1px;
     background-color: #7a7a7a;
 }
+/* vista movile */
+@media screen and (max-width:768px){
+   
+    .container__footer{
+        display: flex;
+        justify-content: center;
+        /* margin: auto; */
+    }
+    .box__footer{
+        padding: 20px;
+
+    }
+    /* carrito vacio */
+    .cart_vacio{
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+
+
+}
+
+
+
+
 /*-------------CHECKOUT ------------- */ 
 /* formulario */
-
 .checkout{
     height: 800px;
     background: #DDDDDD;

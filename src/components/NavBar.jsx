@@ -31,7 +31,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        ecommerce
+        Koston
       </Typography>
       <Divider />
       <List>
@@ -52,8 +52,8 @@ function DrawerAppBar(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
-        <Toolbar>
+      <AppBar component="nav" style={{display:"flex"}}>
+        <Toolbar style={{justifyContent:"space-around"}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -64,13 +64,7 @@ function DrawerAppBar(props) {
             <MenuIcon />
           </IconButton>
           <NavLink  to='/'>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            >
-              <img src={logo} style={{width:"80px"}} alt="" />
-            </Typography>
+              <img src={logo} style={{width:"80px",padding:"2px"}} alt="logo" />
           </NavLink>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -86,6 +80,13 @@ function DrawerAppBar(props) {
                 </Button>
               </NavLink>
           </Box>
+          <Box sx={{ flexGrow: 0,  display: { sm: 'none' } }}>
+            <NavLink  to="./Cart">
+              <Button  sx={{ color: '#fff' }}>
+                <CartWidget/>
+              </Button>
+            </NavLink>   
+          </Box>
         </Toolbar>
       </AppBar>
       <Box component="nav">
@@ -95,7 +96,7 @@ function DrawerAppBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -103,7 +104,7 @@ function DrawerAppBar(props) {
           }}
         >
           {drawer}
-          <CartWidget/>
+        
         </Drawer>
       </Box>    
     </Box>

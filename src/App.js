@@ -8,7 +8,7 @@ import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from '@mui/material';
 import theme from './utils/ThemeMui';
 import Footer from './components/Footer';
-import Nab from './test/NaB';
+
 
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
       <CartProvider>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-          {/* <Nab/> */}
             <NavBar/>
             <Routes>
               <Route path='/' element={<ItemListContainer titulo={titulo} greeting={"Hola bienvenidos!"}/>}/>
