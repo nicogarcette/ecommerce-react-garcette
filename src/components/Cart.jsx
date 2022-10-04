@@ -34,7 +34,7 @@ const Cart = () =>{
                         <CheckOut/>
                     </div>
                     <div className="container_cart">
-                        <h2>Tu carrito</h2>
+                        <h2>Tu carrito</h2> 
                         {cart.map((producto)=>(
                             <CartItem key={producto.id} producto={producto}/>
                         ))}

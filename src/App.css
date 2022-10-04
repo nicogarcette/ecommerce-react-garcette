@@ -72,12 +72,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border:1px solid #002B5B;
-    width: 500px;
+    border-bottom:1px solid #002B5B;
+    width: 600px;
     padding: 1rem;
     margin: 1rem;
-    border-radius: 5px;
 }
+
+
 .cart_vacio{
     margin-top: 6.7rem;
     margin-bottom: 8rem;
@@ -201,13 +202,7 @@ footer{
         text-align: center;
         padding: 0 1rem;
     }
-
-
-
 }
-
-
-
 
 /*-------------CHECKOUT ------------- */ 
 /* formulario */
@@ -218,8 +213,6 @@ footer{
 .checkout_titulo{
     margin-top:8rem;
     text-align: center;
-
-
 }
 .checkout_contenido{
     display: flex;
@@ -228,7 +221,6 @@ footer{
 }
 .form_grupo{
     padding: 0px 20px;
-
 }
 
 .form{
@@ -242,7 +234,7 @@ footer{
 .form_label{
     display: block;
     font-weight:700;
-    padding: 0 10px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 .form_grupo-input{
@@ -262,51 +254,30 @@ footer{
 
 }
 .form_input:focus{
-
     border: 1px solid #0075ff;
     outline: none;
     box-shadow: 2px 0px 40px rgba(99, 99, 99, 0.2);
-
 }
 .form_input-error{
     font-size: 12px;
     line-height: 12px;
     margin-bottom: 0;
     margin-left: 10px;
-    opacity: 0;
+    opacity: 1;
 
 }
 
 .form_validacion-estado{
     position: absolute;
-    right: 10px;
+    right: -40px;
     bottom: 12px;
     z-index: 100;
     font-size: 16px;
     opacity: 0;
 }
 
-
-.form_mensajeError,
 .form_grupo-btn{
     grid-column: span 2;
-}
-
-.form_mensajeError{
-    height: 45px;
-    line-height: 45px;
-    padding: 0 15px;
-    background: #f66060;
-    border-radius: 3px;
-    display: none;
-}
-.form_mensajeError p{
-    margin: 0;
-    opacity: 0;
-}
-
-.form_mensajeError-active{
-    display: block;
 }
 
 .form_grupo-btn{
@@ -331,32 +302,17 @@ footer{
     scale: 1.02;
 }
 
-.form_mensaje-exito{
-    font-size: 14px;
-    color:#119200;
-    display: none;
-}
-.form_mensaje-exito-activado{
-    display: block;
-    opacity: 0;
-
-}
-
 /* ---- estilos de validacion ----*/
-/* correcto */
-
-.form_grupo-correcto .form_input{
-    border:1px solid #1ed12d;
-}
-.form_grupo-correcto i.fa-circle-check{
-    color:#1ed12d;
-    opacity: 1;
-}
 /* incorrecto */
 .form_grupo-incorrecto .form_input{
     border:1px solid #bb2929;
 }
 .form_grupo-incorrecto i.fa-circle-xmark{
+    color:#bb2929;
+    opacity: 1;
+}
+
+.incorrecto{
     color:#bb2929;
     opacity: 1;
 }

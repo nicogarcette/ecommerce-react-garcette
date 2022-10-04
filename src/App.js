@@ -8,6 +8,7 @@ import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from '@mui/material';
 import theme from './utils/ThemeMui';
 import Footer from './components/Footer';
+import CheckOut from './components/CheckOut';
 
 
 
@@ -25,6 +26,7 @@ function App() {
               <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
               <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
               <Route path='/Cart' element={<Cart/>}/>
+              <Route path='/finalizarCompra' element={<CheckOut/>}/>
             </Routes>
           < Footer/>
           </BrowserRouter>
