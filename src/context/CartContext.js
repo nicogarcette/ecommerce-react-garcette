@@ -62,15 +62,32 @@ export const CartProvider = ({children}) =>{
         return cart.reduce((acc,prod)=>acc += prod.cantidad,0);
     }
    
-
     const cartTotal= () =>{
         let total = cart.reduce((acc,prod) => acc += prod.precio*prod.cantidad,0);
         return total.toLocaleString()
     }
 
+    const updateCart = (id,operation) =>{
+        let update;
+        update = cart.map((prod)=>{
+            if (prod.id === id) {
+                if (operation === '+') {
+                    return { ...prod,cantidad:prod.cantidad + 1}; 
+                }else
+                    return { ...prod,cantidad:prod.cantidad - 1};
+            }else{
+                return prod;
+            }
+        });
+        setCart(update);
+        localStorage.setItem("KEY_CART",JSON.stringify(update));
+    }
+
+
+
     return(
         <CartContext.Provider 
-        value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal,idCompra,setIdCompra,setCartLoading,cartLoading}}>
+        value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal,idCompra,setIdCompra,setCartLoading,cartLoading,updateCart}}>
             {children}
         </CartContext.Provider>
     );

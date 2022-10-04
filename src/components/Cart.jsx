@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import CheckOut from "./CheckOut";
+// import CheckOut from "./CheckOut";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import CartItem from "./CartItem";
@@ -30,9 +30,9 @@ const Cart = () =>{
                 </div> 
                 : cart.length > 0 ? 
                 <div className="container">
-                    <div>
+                    {/* <div>
                         <CheckOut/>
-                    </div>
+                    </div> */}
                     <div className="container_cart">
                         <h2>Tu carrito</h2> 
                         {cart.map((producto)=>(

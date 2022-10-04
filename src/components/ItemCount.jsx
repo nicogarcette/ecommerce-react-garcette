@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-const ItemCount = ({initial,stock,setStock,onAdd,count, setCount}) => {
+const ItemCount = ({initial,stock,onAdd,count, setCount}) => {
 
     const [disable,setDisable]= useState(false);
       
@@ -22,8 +22,8 @@ const ItemCount = ({initial,stock,setStock,onAdd,count, setCount}) => {
 
     return(
         <div>
-            <h3>Items: {count}</h3>
             <p>stock: {stock}</p>
+            <h3>Items: {count}</h3>
            
             <button className="btn" onClick={addItem}>+1</button>
             <button className="btn" onClick={removeItem}>-1</button>

@@ -10,13 +10,16 @@ import { useCart } from "../context/CartContext";
 import Alert from "./Alert";
 import { useEffect } from "react";
 
-
 const ItemDetail = ({item}) => {
 
   const {addItem,isInCart} = useCart();
   const {id, marca, modelo, precio,img} = item;
+  const [stock,setStock]=useState(item.stock);
+  const [count,setCount]=useState(1);
+  const [agrego,setAgrego]=useState(false);
+  const [message, setMessage] = useState(null);
+  const navegar = useNavigate();
 
-  
   useEffect(()=>{
        
     const keyCart = JSON.parse(localStorage.getItem("KEY_CART"));
@@ -31,27 +34,16 @@ const ItemDetail = ({item}) => {
   },[isInCart,id,item.stock])
 
 
-
-
-
-  const [stock,setStock]=useState(item.stock);
-  const [count,setCount]=useState(1);
-  const [agrego,setAgrego]=useState(false);
-
-  const [message, setMessage] = useState(null);
-
-  const navegar = useNavigate();
-
   const onAdd=(cantidad)=>{
     let compra ={
       id, 
       marca,
       modelo,
       precio,
-      img, 
+      img,
+      stock, 
       cantidad
     }
-  
 
     if (cantidad<=stock) {
         setMessage(`se ${ cantidad ===1? 'agrego' :'agregaron'} ${cantidad}  ${marca} ${modelo} al carrito`);
@@ -105,7 +97,6 @@ const ItemDetail = ({item}) => {
       </>
       );
 }
-
 export default ItemDetail;
 
 
