@@ -40,8 +40,10 @@ const CheckOut = () =>{
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(pagar)} className="form" >  
+        <div className="checkout">
+            <div>
+                <h2 className="checkout_titulo">Finalizar compra</h2>
+                <form onSubmit={handleSubmit(pagar)} className="form" >  
                     <div className="form_grupo">
                         <label htmlFor="nombre" className="form_label">Nombre:</label>
                         <div className={`form_grupo-input ${errors.nombre && 'form_grupo-incorrecto'}` }>
@@ -96,6 +98,34 @@ const CheckOut = () =>{
                         <button className="form_btn" type="submit">Pagar</button>
                     </div>
                 </form>
+            </div>
+
+            <div className="container_resumen">
+                <h2>Resumen de compra</h2>
+                <div className="resumen">
+                    <div className="resumen-titles">
+                        <p>producto</p>
+                        <p>cantidad</p>
+                        <p>precio</p>
+                    </div>
+                    {cart.map((item)=>{
+                        return <div key={item.id}>
+                            <div>
+                                <img style={{width:"100px"}} src={item.img} alt="" />
+                                <p>{item.modelo}</p>
+                            </div>
+                            <p>{item.cantidad}</p>
+                            <p>${item.precio}</p>
+                        </div>
+                    }) 
+                    }
+                    <div>
+                        <p>Total</p>
+                        <p>${cartTotal()}</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }

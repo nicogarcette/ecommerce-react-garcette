@@ -33,12 +33,12 @@
 
 .btn{
     background-color: #002B5B;
-    /* background-color: #212121; */
     border: solid #002B5B 1px;
     border-radius: 5px;
     padding: .5rem;
     margin: .5rem;
     color: white;
+    height: 40px;
     transition: all .5s ease;
 }
 .btn:hover{
@@ -55,30 +55,26 @@
     margin-bottom: 7rem;
 }
 
-/* cart provisoria */
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
+/* cart */
 .container_cart{
-    margin-bottom: 4rem ;
-    margin-top: 1rem ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* margin-top: 10rem;
+    margin-bottom: 7rem; */
+    margin: 10rem;
 }
 .cart{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom:1px solid #002B5B;
-    width: 600px;
-    padding: 1rem;
-    margin: 1rem;
+    width: 800px;
 }
+.cart .pepe{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    border-bottom: solid #002B5B 1px;
 
-
+   
+}
 .cart_vacio{
     margin-top: 6.7rem;
     margin-bottom: 8rem;
@@ -184,35 +180,19 @@ footer{
     height: 1px;
     background-color: #7a7a7a;
 }
-/* vista movile */
-@media screen and (max-width:768px){
-   
-    .container__footer{
-        display: flex;
-        justify-content: center;
-        /* margin: auto; */
-    }
-    .box__footer{
-        padding: 20px;
 
-    }
-    /* carrito vacio */
-    .cart_vacio{
-        margin-bottom: 4rem;
-        text-align: center;
-        padding: 0 1rem;
-    }
-}
 
 /*-------------CHECKOUT ------------- */ 
 /* formulario */
 .checkout{
-    height: 800px;
-    background: #DDDDDD;
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0 2rem;
 }
 .checkout_titulo{
-    margin-top:8rem;
-    text-align: center;
+    padding-left: 3.5rem;
 }
 .checkout_contenido{
     display: flex;
@@ -224,12 +204,12 @@ footer{
 }
 
 .form{
-    width: 70%;
+    width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap:40px;
     margin: 2rem;
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
 }
 .form_label{
     display: block;
@@ -262,6 +242,7 @@ footer{
     font-size: 12px;
     line-height: 12px;
     margin-bottom: 0;
+    margin-top: 1px;
     margin-left: 10px;
     opacity: 1;
 
@@ -321,3 +302,94 @@ footer{
     opacity: 1;
 }
 
+/* resumen de compra */
+.container_resumen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+    
+
+}
+.resumen{
+    max-height: 600px;
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+    margin-left: 7rem;
+    background-color: #EFF3F5;
+    border-radius: 20px;
+    padding: 1rem;
+
+}
+.resumen::-webkit-scrollbar{
+    width: 7px;
+
+}
+
+.resumen div{
+    display: block;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: .5rem 0;
+}
+.resumen h2 {
+    text-align: center;
+}
+.resumen-titles{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.resumen-titles p{
+    margin-bottom: 0;
+}
+
+/* vista movile */
+@media screen and (max-width:768px){
+   
+    .container__footer{
+        display: flex;
+        justify-content: center;
+        /* margin: auto; */
+    }
+    .box__footer{
+        padding: 20px;
+
+    }
+    /* carrito vacio */
+    .cart_vacio{
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        padding-bottom: 2rem;
+        margin: 0 .7rem;
+        gap: 10px;
+    }
+    .form_grupo-btn {
+        width: 150px;
+    }
+    .form_btn{
+        width: 100%;
+    }
+  
+    .checkout{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
+    
+    }
+    
+    .resumen{
+        margin-left: 0;
+    }
+}

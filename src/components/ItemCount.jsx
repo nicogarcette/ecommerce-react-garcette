@@ -22,8 +22,8 @@ const ItemCount = ({initial,stock,onAdd,count, setCount}) => {
 
     return(
         <div>
-            <p>stock: {stock}</p>
             <h3>Items: {count}</h3>
+            <p>stock: {stock}</p>
            
             <button className="btn" onClick={addItem}>+1</button>
             <button className="btn" onClick={removeItem}>-1</button>

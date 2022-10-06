@@ -22,9 +22,8 @@ const CartItemCount = ({cantidad,stock,id}) =>{
         }
     }
 
-
     return(
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex', justifyContent:'center'}}>
             <button className="btn" onClick={removeItem}>-</button>
             <p>{count}</p>
             <button className="btn" onClick={addItem}>+</button>

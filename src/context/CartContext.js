@@ -21,6 +21,7 @@ export const CartProvider = ({children}) =>{
     const [idCompra, setIdCompra] = useState('');
     const [cartLoading, setCartLoading] = useState(false);
 
+
     const addItem = (item) =>{
         
         setTotalItems(totalItems + item.cantidad); 
@@ -61,10 +62,9 @@ export const CartProvider = ({children}) =>{
     const cartQuatity=()=>{
         return cart.reduce((acc,prod)=>acc += prod.cantidad,0);
     }
-   
     const cartTotal= () =>{
         let total = cart.reduce((acc,prod) => acc += prod.precio*prod.cantidad,0);
-        return total.toLocaleString()
+        return total.toLocaleString();
     }
 
     const updateCart = (id,operation) =>{
@@ -83,11 +83,19 @@ export const CartProvider = ({children}) =>{
         localStorage.setItem("KEY_CART",JSON.stringify(update));
     }
 
+    const itemSubtotal = (id) =>{
+        
+        let pos = cart.findIndex((prod)=> id === prod.id);
+        let subtotal = cart[pos].cantidad * cart[pos].precio;
+
+        return subtotal;
+    }
+
 
 
     return(
         <CartContext.Provider 
-        value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal,idCompra,setIdCompra,setCartLoading,cartLoading,updateCart}}>
+        value={{cart, clear, removeItem, addItem, isInCart,totalItems, cartQuatity, cartTotal,idCompra,setIdCompra,setCartLoading,cartLoading,updateCart,itemSubtotal}}>
             {children}
         </CartContext.Provider>
     );
