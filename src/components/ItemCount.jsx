@@ -21,12 +21,13 @@ const ItemCount = ({initial,stock,onAdd,count, setCount}) => {
     
 
     return(
-        <div>
-            <h3>Items: {count}</h3>
+        <div style={{display:'flex',flexDirection:'column',alignItems:"center"} }>
             <p>stock: {stock}</p>
-           
-            <button className="btn" onClick={addItem}>+1</button>
-            <button className="btn" onClick={removeItem}>-1</button>
+            <div className="itemCount">  
+                <button className="btn-item" onClick={removeItem}>-</button>
+                <h3>{count}</h3>
+                <button className="btn-item" onClick={addItem}>+</button>
+            </div>
             <br />
             <button className="btn" onClick={()=>onAdd(count)}  disabled={disable}>Agregar al carrito</button>
         </div>

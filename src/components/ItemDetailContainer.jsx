@@ -12,6 +12,7 @@ const ItemDetailContainer= () => {
     const [loading,setLoading] = useState(true);
     const {id}=useParams();
   
+  
     useEffect(()=>{
       
         const coleccion = collection(db,"productos");

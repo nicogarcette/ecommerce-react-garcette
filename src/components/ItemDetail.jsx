@@ -54,37 +54,34 @@ const ItemDetail = ({item}) => {
   }
 
     return (
-      <>
+      <div>
         <Alert
         message={message && message}
         isOpen={message !==null}
         onClose={()=> setMessage(null)}
         />
-        <Card className="cardDetail" sx={{ width: 1/2}}>
+        <Card className="cardDetail" sx={{width:{xs:"60%",sm:"1000px"}}}>
           <Grid container justifyContent="center">
-              <Grid item xs={7}>
+              <Grid item xs={12} sm={7}>
                 <CardContent sx={{ width: 1, height:'auto',margin:"0", alignItems:'center'}}>
                   <CardMedia
                     component="img"
                     image={item.img}
                     alt="isis"
                   />
-                  <Typography gutterBottom variant="h5" component="div" color={"error"}>
-                    ${item.precio}
-                  </Typography>
                 </CardContent>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={12} sm={4}>
                   <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        id: {item.id}   
-                      </Typography>
                       <Typography variant="h5" component="div">
-                      {item.modelo}
+                      {item.marca} {item.modelo} 
                       </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        {item.marca}
+                      <Typography gutterBottom variant="h5" component="div" color={"error"}>
+                        ${item.precio}
                       </Typography>
+                      {/* <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                       {item.descripcion}
+                      </Typography> */}
                   </CardContent>
                       {
                         agrego? <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>
@@ -94,7 +91,7 @@ const ItemDetail = ({item}) => {
                 </Grid>
           </Grid>
         </Card>
-      </>
+      </div>
       );
 }
 export default ItemDetail;

@@ -23,11 +23,8 @@ const CartItem = ({producto}) =>{
             </div>
             <p>${precio}</p>
             <CartItemCount cantidad={cantidad} stock={stock} id={id} />
-            
-                <p>${subtotal}</p>
-                <button className="btn-trash" onClick={()=>removeItem(id)}><DeleteIcon/></button>                 
-            
-
+            <p>${subtotal}</p>
+            <button className="btn-trash" onClick={()=>removeItem(id)}><DeleteIcon/></button>    
          </div>
     );
 }

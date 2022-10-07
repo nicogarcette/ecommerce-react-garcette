@@ -1,37 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-// import CheckOut from "./CheckOut";
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
+import CartEmpty from "./CartEmpty";
+
 import CartItem from "./CartItem";
 
 const Cart = () =>{
-    const {cart,clear,cartTotal, idCompra,setIdCompra,cartLoading} = useCart();
+    const {cart,clear,cartTotal} = useCart();
     const navegar = useNavigate();
-    
-    const back = () =>{
-        setIdCompra('');
-        navegar('/');
-    }
-
-    if (cartLoading) {
-        return <Box className="loader center" sx={{ width: '100%'}}>
-                    <CircularProgress disableShrink />
-                </Box> 
-    }
+ 
     return (
         <div className="container_cart">
-           {idCompra ? 
-                <div style={{marginTop:'19rem',textAlign:'center'}}>
-                    <p> tu orden de compra es <strong>{idCompra}</strong></p>
-                    <button className="btn" onClick={()=>back()}>volver</button>
-                </div> 
-                : cart.length > 0 ? 
-                    <div className="">
-                        <h2>Tu carrito</h2> 
+           { cart.length > 0 ? 
+                    <div className="" style={{display:"flex",justifyContent:"space-around"}}>
                         <div className="cart">
-                            <div className="resumen-titles pepe">
+                            <h2>Tu carrito</h2> 
+                            <div className="resumen-titles pepe ">
                                 <p>Producto</p>
                                 <p>Precio</p>
                                 <p>Cantidad</p>
@@ -40,17 +24,18 @@ const Cart = () =>{
                             {cart.map((producto)=>(
                                 <CartItem key={producto.id} producto={producto}/>
                             ))}
-                            {/* <button className="btn" onClick={()=>navegar('/finalizarCompra')}>Finalizar compra</button>
-                            <button className="btn" onClick={clear}>Vaciar carrito</button> 
-                            <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p> */}
+                            <button className="btn " onClick={clear}>Vaciar carrito</button> 
+                        </div>
+                        <div className="cart_resumen">
+                            <h2>resumen de compra</h2>
+                            <div >
+
+                            <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p>
+                            <button className="btn" onClick={()=>navegar('/finalizarCompra')}>Finalizar compra</button>
+                            </div>
                         </div>
                     </div>
-                    :
-                    <div className="cart_vacio">
-                        <h2>Tu carrito está vacío.</h2>
-                        <h3>No sabés que comprar? ¡Miles de productos te esperan!</h3>
-                        <button className="btn" onClick={()=>navegar('/')}>Seguir comprando</button>
-                    </div>
+                    : <CartEmpty/>
             }
         </div>     
     );
