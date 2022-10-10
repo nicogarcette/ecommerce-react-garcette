@@ -15,11 +15,11 @@ const CartItem = ({producto}) =>{
         setSubtotal(itemSubtotal(id));
     },[id,itemSubtotal])
 
-    return(
-        <div className="pepe">
+    return( 
+        <div className="cart-item">
             <div>
                 <p>{marca} {modelo}</p>
-                <img style={{width:"200px"}} src={img} alt={modelo} />
+                <img src={img} alt={modelo} />
             </div>
             <p>${precio}</p>
             <CartItemCount cantidad={cantidad} stock={stock} id={id} />

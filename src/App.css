@@ -1,16 +1,6 @@
-
 .main{
     text-align: center;
     margin-top: 5rem;
-}
-.cartCant{
-    font-size: 16px;
-    background-color: red;
-    padding:1px 6px;
-    border-radius: 50%;
-    position: relative;
-    top:-28px;
-    left: -14px;
 }
 
 .containerCart{
@@ -21,7 +11,6 @@
 .card{
     margin: 3rem;
 }
-
 .ItemDetailContainer{
     text-align: center;
 }
@@ -72,17 +61,38 @@
 
 /* cart */
 .container_cart{
-    margin: 10rem;
+    margin: 10rem 0;
 }
 .cart{
     width: 800px;
 }
-.cart .pepe{
+.cart .clear {
+    margin-left: 50% ;
+    transform: translateX(-50%);
+}
+.cart .cart-item{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
     align-items: center;
     text-align: center;
     border-bottom: solid #002B5B 1px;
+}
+.cart-item img{
+    width: 200px;
+}
+.cart_resumen{
+    width: 400px;
+    height: 200px;
+    background: #EFF3F5;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.flex{
+    display:flex ;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .cart_vacio{
@@ -221,7 +231,6 @@ footer{
     grid-template-columns: 1fr 1fr;
     gap:40px;
     margin: 2rem;
-    /* margin-top: 10rem; */
 }
 .form_label{
     display: block;
@@ -231,7 +240,6 @@ footer{
 }
 .form_grupo-input{
     position: relative;
-
 }
 
 .form_input{
@@ -257,7 +265,6 @@ footer{
     margin-top: 1px;
     margin-left: 10px;
     opacity: 1;
-
 }
 
 .form_validacion-estado{
@@ -319,28 +326,23 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 1rem;
-    
+    padding-bottom: 3rem;
 
 }
 .resumen{
-    max-height: 600px;
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
+    max-height: 500px;
+    overflow-y: auto;   
+    overflow-x: hidden;  
     margin-left: 7rem;
     background-color: #EFF3F5;
     border-radius: 20px;
     padding: 1rem;
-
 }
 .resumen::-webkit-scrollbar{
     width: 7px;
-
 }
 
 .resumen div{
-    display: block;
-
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -360,9 +362,10 @@ footer{
     margin-bottom: 0;
 }
 
+
 /* vista movile */
 @media screen and (max-width:768px){
-   
+
     .container__footer{
         display: flex;
         justify-content: center;
@@ -398,10 +401,23 @@ footer{
         display: flex;
         flex-direction: column-reverse;
         gap: 0;
+        margin-top: 4rem;
     
     }
     
     .resumen{
+        max-height: 400px;
         margin-left: 0;
     }
+    .container_cart{
+        margin: 5rem 0;
+        padding: 0 1rem;
+    }
+    .cart-item img{
+        width: 100px;
+    }
+    .cart{
+      margin-bottom: 2rem;
+    }
+  
 }

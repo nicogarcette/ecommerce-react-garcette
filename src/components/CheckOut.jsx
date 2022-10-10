@@ -10,17 +10,17 @@ import CartEmpty from "./CartEmpty";
 
 const CheckOut = () =>{
     const navegar = useNavigate();
-    const {cart,cartTotal,setIdCompra,clear,setCartLoading,idCompra,cartLoading} = useCart();
+    const {cart,cartTotal,setIdCompra,clear,setCartLoading,idCompra,cartLoading,itemSubtotal} = useCart();
     const {register, handleSubmit, formState: {errors} } = useForm();
     const expresiones = {
         nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         phone: /^\d{8,14}$/
     }
+
     useEffect(()=>{
         setIdCompra('');
     },[setIdCompra])
-    
     
     const pagar = (data) =>{
 
@@ -46,8 +46,6 @@ const CheckOut = () =>{
         })
     }
   
-    
-  
     if (cartLoading) {
         return <Box className="loader center" sx={{ width: '100%'}}>
                     <CircularProgress disableShrink />
@@ -55,10 +53,10 @@ const CheckOut = () =>{
     }
 
     return ( 
-        <div className="container_cart">
+        <div className="">
             {idCompra ? <div style={{marginTop:'19rem',textAlign:'center'}}>
                             <h2>Muchas gracias por tu compra!</h2>
-                            <p> tu orden de compra es <strong>{idCompra}</strong></p>
+                            <p> Tu orden de compra es <strong>{idCompra}</strong></p>
                             <button className="btn" onClick={()=>navegar('/')}>volver</button>
                         </div> 
                     : !cart.length > 0 ? <CartEmpty/> :
@@ -126,28 +124,28 @@ const CheckOut = () =>{
                             <h2>Resumen de compra</h2>
                             <div className="resumen">
                                 <div className="resumen-titles">
-                                    <p>producto</p>
-                                    <p>cantidad</p>
-                                    <p>precio</p>
+                                    <p>Producto</p>
+                                    <p>Cantidad</p>
+                                    <p>Precio</p>
                                 </div>
                                 {cart.map((item)=>{
                                     return <div key={item.id}>
                                         <div>
-                                            <img style={{width:"100px"}} src={item.img} alt="" />
+                                            <img style={{width:"100px"}} src={item.img} alt={item.modelo} />
                                             <p>{item.modelo}</p>
                                         </div>
                                         <p>{item.cantidad}</p>
-                                        <p>${item.precio}</p>
+                                        <p>${itemSubtotal(item.id)}</p>
                                     </div>
                                 }) 
                                 }
-                                <div>
+                                <div className="resumen-titles">
                                     <p>Total</p>
+                                    <p>--</p>
                                     <p>${cartTotal()}</p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
             }
         </div>

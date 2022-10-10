@@ -12,10 +12,10 @@ const Cart = () =>{
     return (
         <div className="container_cart">
            { cart.length > 0 ? 
-                    <div className="" style={{display:"flex",justifyContent:"space-around"}}>
+                    <div className="flex">
                         <div className="cart">
                             <h2>Tu carrito</h2> 
-                            <div className="resumen-titles pepe ">
+                            <div className="resumen-titles cart-item">
                                 <p>Producto</p>
                                 <p>Precio</p>
                                 <p>Cantidad</p>
@@ -24,15 +24,15 @@ const Cart = () =>{
                             {cart.map((producto)=>(
                                 <CartItem key={producto.id} producto={producto}/>
                             ))}
-                            <button className="btn " onClick={clear}>Vaciar carrito</button> 
+                            <button className="btn clear " onClick={clear}>Vaciar carrito</button> 
                         </div>
                         <div className="cart_resumen">
-                            <h2>resumen de compra</h2>
-                            <div >
-
-                            <p>TOTAL = <strong>${cartTotal() || '00'}</strong></p>
-                            <button className="btn" onClick={()=>navegar('/finalizarCompra')}>Finalizar compra</button>
+                            <h2>Resumen de compra</h2>
+                            <div style={{display:'flex',justifyContent:"space-around",alignItems:"center"}}>
+                                <p>TOTAL</p>
+                                <strong>${cartTotal() || '00'}</strong>
                             </div>
+                            <button className="btn" onClick={()=>navegar('/finalizarCompra')}>Finalizar compra</button>
                         </div>
                     </div>
                     : <CartEmpty/>
