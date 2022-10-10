@@ -1,3 +1,59 @@
+
+# Koston - App React
+
+**Koston** es un ecommerse ficticio de tienda de ropa, el cual fue realizado con **react**. El mismo cuenta con distintas **categorias** de productos, pudiendo acceder a ellas por diferentes rutas. Por otro lado, tambien cuenta con un apartado donde esta el **carrito**, en donde se muestran todos los productos seleccionados. y por ultimo, un **checkout** en donde se validan los datos de cliente para finalizar la compra.
+
+
+## Instalacion
+
+Para instalar el proyecto con npm:
+
+```
+  git clone https://github.com/nicogarcette/ecommerce-react-garcette.git
+  npm install
+  npm start
+```
+- debera crear una cuenta en firebase y crear un proyecto.
+- Luego crear una base de datos para el proyecto con las siguientes colecciones:
+  - productos:
+   ```
+   {
+      "img": "string",
+      "categoria": "string",
+      "descripcion": "string",
+      "marca": "string",
+      "modelo": "string",
+      "precio": "number",
+      "stock": "number"
+   }
+  ```
+  - orders:
+   ```
+   {
+     {
+      "buyer": {
+                "email": "string",
+                "nombre": "string",
+                "telefono": "string"
+                },
+        "date": "date",
+        "items": [{
+                  "id": "string",
+                  "marca": "string",
+                  "precio": "number",
+                  "cantidad": "number"
+                }]
+      }
+    }
+    ```
+
+## Librerias
+
+ - [Material UI](https://mui.com/)
+ - [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+ - [React hook form](https://react-hook-form.com/)
+ - [React hook form](https://react-hook-form.com/)
+
 # Item Collection II
 - Se le piden datos al cliente para generar la orden de compra.
 - La orden de compra se guarda en la colección "orders" en firebase.

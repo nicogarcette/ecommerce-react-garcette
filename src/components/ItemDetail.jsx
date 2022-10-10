@@ -79,9 +79,6 @@ const ItemDetail = ({item}) => {
                       <Typography gutterBottom variant="h5" component="div" color={"error"}>
                         ${item.precio}
                       </Typography>
-                      {/* <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                       {item.descripcion}
-                      </Typography> */}
                   </CardContent>
                       {
                         agrego? <button className="btn" onClick={()=>navegar('/Cart')}>ir a carrito</button>

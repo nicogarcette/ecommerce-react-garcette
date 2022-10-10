@@ -10,11 +10,7 @@ import theme from './utils/ThemeMui';
 import Footer from './components/Footer';
 import CheckOut from './components/CheckOut';
 
-
-
 function App() {
-
-  const titulo="Tienda online";
 
   return (
       <CartProvider>
@@ -22,7 +18,7 @@ function App() {
           <BrowserRouter>
             <NavBar/>
             <Routes>
-              <Route path='/' element={<ItemListContainer titulo={titulo} greeting={"Hola bienvenidos!"}/>}/>
+              <Route path='/' element={<ItemListContainer/>}/>
               <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
               <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
               <Route path='/Cart' element={<Cart/>}/>
