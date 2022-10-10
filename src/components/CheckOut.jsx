@@ -53,8 +53,8 @@ const CheckOut = () =>{
     }
 
     return ( 
-        <div className="">
-            {idCompra ? <div style={{marginTop:'19rem',textAlign:'center'}}>
+        <div>
+            {idCompra ? <div className="checkout-orden">
                             <h2>Muchas gracias por tu compra!</h2>
                             <p> Tu orden de compra es <strong>{idCompra}</strong></p>
                             <button className="btn" onClick={()=>navegar('/')}>volver</button>

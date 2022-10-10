@@ -24,7 +24,7 @@ const Cart = () =>{
                             {cart.map((producto)=>(
                                 <CartItem key={producto.id} producto={producto}/>
                             ))}
-                            <button className="btn clear " onClick={clear}>Vaciar carrito</button> 
+                            <button className="btn mid" onClick={clear}>Vaciar carrito</button> 
                         </div>
                         <div className="cart_resumen">
                             <h2>Resumen de compra</h2>
