@@ -7,7 +7,6 @@
 ## Instalacion
 
 Para instalar el proyecto con npm:
-
 ```
   git clone https://github.com/nicogarcette/ecommerce-react-garcette.git
   npm install

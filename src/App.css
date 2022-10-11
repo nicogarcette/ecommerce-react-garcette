@@ -48,9 +48,8 @@
     transition: all .5s ease;
 }
 .btn:hover{
-    background-color: #7FBCD2;
+    background-color: #4bb7df;
     border: solid #7FBCD2 1px;
-    color:black;
 }
 .cardDetail{
     position: relative;
@@ -367,19 +366,15 @@ footer{
     margin-bottom: 14rem;
     text-align: center;
 }
-
-
 /* vista movile */
 @media screen and (max-width:768px){
 
     .container__footer{
         display: flex;
         justify-content: center;
-        /* margin: auto; */
     }
     .box__footer{
         padding: 20px;
-
     }
     /* carrito vacio */
     .cart_vacio{
@@ -401,15 +396,12 @@ footer{
     .form_btn{
         width: 100%;
     }
-  
     .checkout{
         display: flex;
         flex-direction: column-reverse;
         gap: 0;
         margin-top: 4rem;
-    
     }
-    
     .resumen{
         max-height: 400px;
         margin-left: 0;

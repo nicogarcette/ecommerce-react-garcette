@@ -1,14 +1,18 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import CartEmpty from "./CartEmpty";
-
 import CartItem from "./CartItem";
+import ModalView from "./ModalView";
+
 
 const Cart = () =>{
     const {cart,clear,cartTotal} = useCart();
+    const [modal,setModal] = useState(false);
     const navegar = useNavigate();
  
+
     return (
         <div className="container_cart">
            { cart.length > 0 ? 
@@ -24,7 +28,8 @@ const Cart = () =>{
                             {cart.map((producto)=>(
                                 <CartItem key={producto.id} producto={producto}/>
                             ))}
-                            <button className="btn mid" onClick={clear}>Vaciar carrito</button> 
+                            <button className="btn mid" onClick={()=>setModal(true)}>Vaciar carrito</button>
+                            <ModalView modal={modal && modal} onClose={()=> setModal(false) } clear={clear}/>
                         </div>
                         <div className="cart_resumen">
                             <h2>Resumen de compra</h2>
