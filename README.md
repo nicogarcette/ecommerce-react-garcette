@@ -3,6 +3,11 @@
 
 **Koston** es un ecommerse ficticio de tienda de ropa, el cual fue realizado con **react**. El mismo cuenta con distintas **categorias** de productos, pudiendo acceder a ellas por diferentes rutas. Por otro lado, tambien cuenta con un apartado donde esta el **carrito**, en donde se muestran todos los productos seleccionados. y por ultimo, un **checkout** en donde se validan los datos de cliente para finalizar la compra.
 
+## Visualizacion
+Deploy en `vercel`  [Koston.com](https://ecommerce-react-nicogarcette.vercel.app/)
+![Alt Text](https://i.postimg.cc/zDTMfxM0/2022-10-11-21-51-26-Trim.gif)
+
+
 ## Características de la app
 
 - La aplicación es responsive
