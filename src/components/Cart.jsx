@@ -6,7 +6,6 @@ import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
 import ModalView from "./ModalView";
 
-
 const Cart = () =>{
     const {cart,clear,cartTotal} = useCart();
     const [modal,setModal] = useState(false);
