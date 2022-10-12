@@ -3,6 +3,15 @@
 
 **Koston** es un ecommerse ficticio de tienda de ropa, el cual fue realizado con **react**. El mismo cuenta con distintas **categorias** de productos, pudiendo acceder a ellas por diferentes rutas. Por otro lado, tambien cuenta con un apartado donde esta el **carrito**, en donde se muestran todos los productos seleccionados. y por ultimo, un **checkout** en donde se validan los datos de cliente para finalizar la compra.
 
+## Características de la app
+
+- La aplicación es responsive
+- No se pueden comprar más artículos de los que hay en stock.
+- Al elegir una categoría sólo se mostrarán los artículos de esa categoría.
+- No se pueden comprar más artículos de los que hay en stock.
+- El formulario se valida utilizando la librería react-hook-form y la orden se guarda en firebase.
+- La ruta /cart y /finalizarCompra solo está disponible cuando el carrito tiene algún item, de lo contrario no se podrá navegar hasta ella.
+- la app obtiene los productos desde una base de datos (firebase).
 
 ## Instalacion
 
@@ -50,7 +59,6 @@ Para instalar el proyecto con npm:
 
  - [Material UI](https://mui.com/)
  - [React Router DOM](https://www.npmjs.com/package/react-router-dom)
- - [React hook form](https://react-hook-form.com/)
  - [React hook form](https://react-hook-form.com/)
 
 # Item Collection II
